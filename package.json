@@ -1,0 +1,24 @@
+{
+  "name": "strategogame",
+  "version": "1.0.0",
+  "description": "\"# strategoGame\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheJoker12321/strategoGame.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/TheJoker12321/strategoGame/issues"
+  },
+  "homepage": "https://github.com/TheJoker12321/strategoGame#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}

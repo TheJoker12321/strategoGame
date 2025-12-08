@@ -1,7 +1,7 @@
-function createPlayer(name) {
+function createPlayer(name, numberSoldier) {
     return {
         name: name,
-        numberSoldier: Math.floor(Math.random() * 10)
+        numberSoldier: numberSoldier
     }
 }
 
@@ -18,4 +18,5 @@ function logPlayer(numberSoldierPlayer, numberSoldierAI) {
     }
 }
 
-console.log(logPlayer(4, 6));
+console.log(createPlayer("hagay", 8));
+
