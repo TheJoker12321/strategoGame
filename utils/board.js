@@ -1,4 +1,4 @@
-import {movement} from "./logicGame.js"
+import { movement } from "./logicGame.js"
 
 export function createBoard(size = 10) {
     let board = []
@@ -12,18 +12,22 @@ export function createBoard(size = 10) {
     return board
 }
 
-export function createSoliders(size = 10) {
-    let soliders = ["flag"]
+export function createSoliders(symbole, size = 10) {
+    let soliders = [{ symbole: symbole, value: "flag" }]
     if (size == 1) {
-        soliders = [1]
+        soliders = { symbole: symbole, value: 1 }
     }
     else {
         for (let i = 1; i < size; i++) {
-            soliders.push(i)
+            soliders.push({ symbole: symbole, value: i })
         }
     }
     return soliders
 }
+
+
+
+
 
 export function shuffleSoliders(solidersList) {
     let swaps = 100
@@ -58,6 +62,8 @@ export function soldiersToBoardP1(board, soliders) {
     return board;
 }
 
+
+
 export function soldiersToBoardP2(board, soliders) {
     let row = board.length - 1
     let col = board.length - 1
@@ -76,18 +82,42 @@ export function soldiersToBoardP2(board, soliders) {
 
 
 
+function printBoard(board) {
+    let new_board = []
+    for (let row of board) {
+        let l = []
+        for (let col of row) {
+            if (typeof col != "object") {
+                l.push(col)
+            }
+            else { l.push(col.symbole) }
+        }
+        new_board.push(l)
+    } console.table(new_board)
+}
 
-let soliders = shuffleSoliders(createSoliders(10))
-let soliders2 = createSoliders(1)
-console.log(soliders2);
+
 
 let board = createBoard()
-soldiersToBoardP1(board, soliders)
+let soliders1 = createSoliders("O")
+// console.log(soliders1);
+soldiersToBoardP1(board, soliders1)
+// printBoard(board)lllll
+
+
+// let soliders = shuffleSoliders(createSoliders(10))
+let soliders2 = createSoliders("X")
+// console.log(soliders2);
+
+// let board = createBoard()
+// soldiersToBoardP1(board, soliders)
 soldiersToBoardP2(board, soliders2)
-console.table(board);
-console.table(movement(9, 9, board))
+console.log(board);
+// printBoard(board)
+// console.table(movement(9, 9, board))
+// console.log(board);
 
-
+printBoard(board)
 
 
 

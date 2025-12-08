@@ -24,7 +24,7 @@ function canMove(row, col, board) {
 function movement(row, col, board) {
     let canMove1 = canMove(row, col, board)
     let move;
-    while (true) {    
+    while (true) {
         console.log(`you can move in these direction: ${canMove1}`);
         move = readline.question("which way you want to move? ")
         if (!(canMove1.includes(move))) {
@@ -50,4 +50,4 @@ function movement(row, col, board) {
 }
 let x = createBoard(4)
 
-export {movement}
+export { movement }
