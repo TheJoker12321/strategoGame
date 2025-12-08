@@ -10,13 +10,18 @@ export function createBoard(size = 10) {
     return board
 }
 
-export function createSoliders(size = 10) {
-    let soliders = ["flag"]
-    for (let i = 1; i < size; i++) {
-        soliders.push(i)
-    }
-    return soliders
-}
+// export function createSoliders(size = 10) {
+//     let soliders = ["flag"]
+//     if (size == 1) {
+//         soliders = [1]
+//     }
+//     else {
+//         for (let i = 1; i < size; i++) {
+//             soliders.push(i)
+//         }
+//     }
+//     return soliders
+// }
 
 export function shuffleSoliders(solidersList) {
     let swaps = 100
@@ -35,7 +40,7 @@ export function shuffleSoliders(solidersList) {
     } return solidersList
 }
 
-export function soldiersToBoard(board, soliders) {
+export function soldiersToBoardP1(board, soliders) {
     let row = 0
     let col = 0
     while (soliders.length !== 0) {
@@ -46,6 +51,24 @@ export function soldiersToBoard(board, soliders) {
             col = 0
             row++
         }
+        else if (row > board.length && soliders.length > 0) {
+            return `invalid input`
+        }
+    }
+    return board;
+}
+
+export function soldiersToBoardP2(board, soliders) {
+    let row = board.length - 1
+    let col = board.length - 1
+    while (soliders.length !== 0) {
+        let solider = soliders.pop()
+        board[row][col] = solider
+        col--
+        if (col < 0) {
+            col = board.length - 1
+            row--
+        }
     }
     return board;
 }
@@ -54,12 +77,16 @@ export function soldiersToBoard(board, soliders) {
 
 
 
+// let soliders = shuffleSoliders(createSoliders(10))
+// let soliders2 = shuffleSoliders(createSoliders(10))
+// console.log(soliders2);
 
-
-
-// let soliders = shuffleSoliders(createSoliders(20))
 // let board = createBoard()
-// let fullboard = soldiersToBoard(board, soliders)
-// console.log(fullboard);
+// soldiersToBoardP1(board, soliders)
+// soldiersToBoardP2(board, soliders2)
+// console.table(board);
+
+
+
 
 
